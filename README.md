@@ -44,8 +44,6 @@ To formally validate the logic of the MATLAB simulation, the system was modeled 
 
 * `/matlab` - Contains the primary simulator scripts, state-transition logic, and metric computation.
 * `/greatspn` - Contains the GreatSPN project files (`.net`, `.def`) representing the GSPN model and validation outputs.
-* `/docs` - Project report detailing the mathematical background, parameters used (MTTF, MTTR), and comparative results.
-
 ---
 
 ## Getting Started
