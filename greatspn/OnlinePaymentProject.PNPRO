@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This project file has been saved by the New GreatSPN Editor, v.100 --><project name="OnlinePaymentProject" version="121">
+  <measures gspn-name="GSPN 1" log-uuid="175d61c8-0949-43be-9c88-dde52139701e" name="Measures" simplified-UI="false">
+    <assignments/>
+    <mc4cslta epsilon="1.0e-6" linear-algorithm="POWER_METHOD"/>
+    <formulas>
+      <formula language="ALL">
+        <result-table>
+          <all-measures name="ALL">
+            <bindings/>
+            <mean place="Arrivals" value="1.0"/>
+            <mean place="CKBusy_W" value="0.0610836"/>
+            <mean place="CKIdle_W" value="9.28315E-4"/>
+            <mean place="CK_Busy" value="0.0125987"/>
+            <mean place="DBBusy1" value="0.953828"/>
+            <mean place="DB_SysDown" value="0.0327229"/>
+            <mean place="DB_idle" value="0.0142922"/>
+            <mean place="FEFailed" value="0.0408152"/>
+            <mean place="FE_W" value="0.445738"/>
+            <mean place="FEs" value="4.84894E-7"/>
+            <mean place="FEtoDB1" value="1.51345"/>
+            <mean place="Queue" value="19.9686"/>
+            <mean place="SysDownFE" value="4.1648E-4"/>
+            <throughput transition="BusyCPUseless" value="0.012219"/>
+            <throughput transition="CKIdleR" value="1.85666E-4"/>
+            <throughput transition="DBCKbusyR" value="0.0122169"/>
+            <throughput transition="DBFail_Idle" value="2.36312E-6"/>
+            <throughput transition="DBFail_W" value="1.5757E-4"/>
+            <throughput transition="DBRep_busy" value="4.21759E-6"/>
+            <throughput transition="DBRep_idle" value="1.59397E-4"/>
+            <throughput transition="FEF_idle" value="5.6122E-10"/>
+            <throughput transition="FEFail_W" value="5.159E-4"/>
+            <throughput transition="FEFail_wait" value="0.00175167"/>
+            <throughput transition="FE_Rep" value="0.00226751"/>
+            <throughput transition="LostBuffer" value="97.7282"/>
+            <throughput transition="LostDB_Unv1" value="0.320807"/>
+            <throughput transition="QueueFree" value="2.23013"/>
+            <throughput transition="T2" value="2.22869"/>
+            <throughput transition="T3" value="0.0122167"/>
+            <throughput transition="T4" value="1.85663E-4"/>
+            <throughput transition="T5" value="1.90597"/>
+            <throughput transition="lostDB_Unv2" value="1.55627E-4"/>
+            <throughput transition="lostUnv_0" value="0.041648"/>
+            <throughput transition="lostUnv_1" value="9.24503E-4"/>
+            <throughput transition="t" value="4.62756E-5"/>
+            <throughput transition="t0" value="2.2292"/>
+            <throughput transition="t1" value="1.90613"/>
+            <throughput transition="t2" value="4.62757E-5"/>
+            <distrib place="Arrivals" values="2 = 0.0 1.0 "/>
+            <distrib place="CKBusy_W" values="2 = 0.938916 0.0610836 "/>
+            <distrib place="CKIdle_W" values="2 = 0.999072 9.28315E-4 "/>
+            <distrib place="CK_Busy" values="2 = 0.987401 0.0125987 "/>
+            <distrib place="DBBusy1" values="2 = 0.0461715 0.953828 "/>
+            <distrib place="DB_SysDown" values="2 = 0.967277 0.0327229 "/>
+            <distrib place="DB_idle" values="2 = 0.985708 0.0142922 "/>
+            <distrib place="FEFailed" values="3 = 0.959601 0.0399822 4.1648E-4 "/>
+            <distrib place="FE_W" values="3 = 0.645397 0.263469 0.0911344 "/>
+            <distrib place="FEs" values="3 = 1.0 4.8431E-7 2.92154E-10 "/>
+            <distrib place="FEtoDB1" values="3 = 0.106667 0.273219 0.620114 "/>
+            <distrib place="Queue" values="21 = 4.17448E-4 4.827E-7 4.81986E-7 4.81327E-7 4.80718E-7 4.80154E-7 4.79632E-7 4.79149E-7 4.78701E-7 4.78286E-7 4.77903E-7 4.7757E-7 4.77492E-7 4.79737E-7 5.05014E-7 7.60619E-7 3.327E-6 3.01191E-5 5.53613E-4 0.0217057 0.977282 "/>
+            <distrib place="SysDownFE" values="2 = 0.999584 4.1648E-4 "/>
+          </all-measures>
+        </result-table>
+      </formula>
+    </formulas>
+  </measures>
+  <gspn name="GSPN 1" show-color-cmd="false" show-fluid-cmd="false" zoom="75">
+    <nodes>
+      <constant consttype="INTEGER" name="K" value="20" x="4.0625" y="25.0"/>
+      <place label-x="2.0" label-y="-0.5" marking="2" name="FEs" x="20.0" y="35.0"/>
+      <place label-x="2.5" label-y="-1.0" marking="1" name="Arrivals" x="4.0" y="36.0"/>
+      <transition label-x="-1.0" name="t0" rotation="-0.0" type="IMM" x="23.85" y="44.0"/>
+      <place name="Queue" x="16.0" y="44.0"/>
+      <transition delay="lam" delay-x="0.0" delay-y="2.0" name="QueueFree" nservers-x="0.5" rotation="-0.0" type="EXP" x="10.55" y="38.0"/>
+      <place label-y="-1.5" name="FE_W" x="29.0" y="44.0"/>
+      <transition delay="(1/muFEInv)*#FE_W" delay-x="-4.0" delay-y="-2.0" label-x="-1.0" label-y="-1.0" name="T2" nservers="1" nservers-x="0.5" nservers-y="1.0" rotation="-0.0" type="EXP" x="35.55" y="44.0"/>
+      <place label-x="-1.0" label-y="-1.5" name="FEtoDB1" x="41.0" y="44.0"/>
+      <transition delay="lam" label-x="2.0" name="LostBuffer" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="5.55" y="44.0"/>
+      <place label-x="-2.5" label-y="0.0" marking="1" name="DB_idle" x="46.0" y="36.0"/>
+      <transition name="t1" rotation="-0.0" type="IMM" x="44.85" y="44.0"/>
+      <place label-x="-2.0" label-y="-1.5" name="DBBusy1" x="54.0" y="44.0"/>
+      <transition delay="1/muDBInv" name="T5" nservers-x="0.5" rotation="-0.0" type="EXP" x="61.55" y="44.0"/>
+      <transition delay="1/gamDBInv" delay-y="-0.5" label-x="3.5" label-y="0.5" name="DBFail_Idle" nservers-x="0.5" rotation="-0.0" type="EXP" x="47.55" y="48.0"/>
+      <transition delay="(1/gamFEInv)*#FEs" delay-y="-1.0" label-y="1.5" name="FEF_idle" nservers="1" nservers-x="-2.0" nservers-y="2.5" rotation="1.5707963267948966" type="EXP" x="20.55" y="48.0"/>
+      <transition delay="(1/gamFEInv)*#FE_W" delay-x="1.0" delay-y="0.0" label-x="2.5" name="FEFail_W" nservers="1" nservers-x="-1.0" nservers-y="1.5" rotation="1.5707963267948966" type="EXP" x="29.55" y="48.0"/>
+      <transition delay="(1/gamFEInv)*#FEtoDB1" delay-x="1.5" delay-y="0.0" label-x="2.5" label-y="1.0" name="FEFail_wait" nservers="1" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="38.55" y="47.0"/>
+      <place label-x="-0.5" label-y="-2.0" name="FEFailed" x="35.0" y="52.0"/>
+      <transition label-x="2.0" label-y="-0.5" name="t2" rotation="1.5707963267948966" type="IMM" x="35.85" y="58.0"/>
+      <place name="SysDownFE" x="35.0" y="62.0"/>
+      <transition delay="1/gamDBInv" label-x="2.5" label-y="-1.0" name="DBFail_W" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="65.55" y="50.0"/>
+      <place label-x="2.5" name="DB_SysDown" x="56.0" y="57.0"/>
+      <transition delay="tau" delay-x="0.0" delay-y="1.5" label-x="-2.5" label-y="1.5" name="CKIdleR" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="41.55" y="33.0"/>
+      <transition delay="tau" label-x="-3.5" label-y="0.5" name="DBCKbusyR" nservers-x="0.5" rotation="1.5707963267948966" text-size="SMALL" type="EXP" x="54.55" y="36.0"/>
+      <transition delay="(1/deltaFEInv)*#FEFailed" delay-x="1.0" delay-y="0.0" label-x="-0.5" label-y="1.0" name="FE_Rep" nservers="1" nservers-x="-2.0" rotation="1.5707963267948966" type="EXP" x="17.55" y="52.0"/>
+      <transition delay="1/roInv" delay-x="-2.5" delay-y="-1.5" label-x="-1.5" label-y="1.0" name="DBRep_idle" nservers-x="0.5" rotation="4.71238898038469" type="EXP" x="45.55" y="52.0"/>
+      <constant consttype="REAL" name="lam" value="100" x="3.4375" y="24.0"/>
+      <constant consttype="REAL" name="gamFEInv" value="864" x="3.0" y="31.0"/>
+      <constant consttype="REAL" name="gamDBInv" value="6048" x="2.875" y="33.0"/>
+      <constant consttype="REAL" name="tau" value="0.01388" x="4.375" y="26.0"/>
+      <constant consttype="REAL" name="muFEInv" value="0.2" x="3.375" y="29.0"/>
+      <constant consttype="REAL" name="muDBInv" value="0.5" x="3.25" y="30.0"/>
+      <constant consttype="REAL" name="roInv" value="200" x="3.8125" y="27.0"/>
+      <constant consttype="REAL" name="deltaFEInv" value="18" x="2.75" y="32.0"/>
+      <place label-x="3.0" label-y="-0.5" name="CK_Busy" x="59.0" y="37.0"/>
+      <transition delay="1/roInv" delay-x="1.0" delay-y="-0.5" label-x="2.0" label-y="1.0" name="DBRep_busy" nservers-x="0.5" rotation="4.71238898038469" type="EXP" x="70.55" y="58.0"/>
+      <transition label-x="0.5" label-y="-2.0" name="BusyCPUseless" rotation="-0.0" type="IMM" x="68.85" y="37.0"/>
+      <transition label-x="2.5" label-y="-1.0" name="lostUnv_1" type="IMM" x="15.85" y="61.0"/>
+      <transition label-x="1.0" label-y="-2.0" name="t" rotation="1.5707963267948966" type="IMM" x="27.85" y="65.0"/>
+      <transition label-x="3.0" label-y="1.0" name="LostDB_Unv1" rotation="1.5707963267948966" type="IMM" x="46.85" y="63.0"/>
+      <transition delay="lam" label-x="-0.5" label-y="1.5" name="lostUnv_0" nservers-x="0.5" type="EXP" x="4.55" y="65.0"/>
+      <transition label-y="1.0" name="lostDB_Unv2" rotation="1.5707963267948966" type="IMM" x="56.85" y="62.0"/>
+      <place label-y="-2.0" name="CKBusy_W" x="54.0" y="33.0"/>
+      <transition delay="1/sigInv" name="T3" nservers-x="0.5" type="EXP" x="60.55" y="33.0"/>
+      <place label-x="-3.0" label-y="-1.0" name="CKIdle_W" x="43.0" y="29.0"/>
+      <transition delay="1/sigInv" name="T4" nservers-x="0.5" rotation="5.497787143782139" type="EXP" x="45.55" y="27.0"/>
+      <constant consttype="REAL" name="sigInv" value="5" x="3.625" y="28.0"/>
+      <text-box bold="true" border-color="#000000" fill-color="none" height="11.0" name="__textBox0" shadow="true" shape="ROUND_RECTANGLE" text-color="#000000" x="2.0" y="12.5">lam = 100req/s
+K = 20 (queue length)
+tau = 0.01388 s-1
+roInv = 200s
+sigInv = 5 s
+muFEInv = 0.2 s
+meDBInv = 0.5s
+gamFEInv = 864s
+deltaFEInv = 18s
+gamDBInv = 6048s
+</text-box>
+      <text-box bold="true" border-color="#000000" fill-color="none" name="__textBox1" shadow="true" shape="ROUND_RECTANGLE" text-color="#000000" width="30.75" x="14.75" y="16.0">ThroughPut = 1.87 Req/s
+LostBufferRate = 97,92 Req/s
+LostUnvRate = 0.4 Req/s (lostUnv_0 +...)
+
+meanN = #Queue + #FE_W + #FEtoDB1= 21.6864 Req
+ </text-box>
+      <text-box bold="true" border-color="#000000" fill-color="none" height="3.5" name="__textBox2" shadow="true" shape="ROUND_RECTANGLE" text-color="#000000" width="25.75" x="45.75" y="16.25">Little Law
+
+meanRespTime = meanN/Throughput = 11.6148 s</text-box>
+    </nodes>
+    <edges>
+      <arc head="QueueFree" kind="INPUT" tail="Arrivals"/>
+      <arc head="Queue" kind="OUTPUT" tail="QueueFree"/>
+      <arc head="t0" kind="INPUT" tail="Queue"/>
+      <arc head="t0" kind="INPUT" tail="FEs"/>
+      <arc head="FE_W" kind="OUTPUT" tail="t0"/>
+      <arc head="T2" kind="INPUT" tail="FE_W"/>
+      <arc head="FEtoDB1" kind="OUTPUT" tail="T2"/>
+      <arc head="QueueFree" kind="INHIBITOR" mult="K" mult-k="0.6202148437500001" tail="Queue">
+        <point x="16.6242792069094" y="41.61851286218458"/>
+        <point x="16.5" y="40.5"/>
+      </arc>
+      <arc head="LostBuffer" kind="INPUT" mult="K" mult-k="1.0999023437500002" tail="Queue">
+        <point x="12.936816406250001" y="45.0"/>
+      </arc>
+      <arc head="LostBuffer" kind="INPUT" tail="Arrivals"/>
+      <arc head="Queue" kind="OUTPUT" mult="K" tail="LostBuffer">
+        <point x="12.5" y="47.5"/>
+      </arc>
+      <arc head="t1" kind="INPUT" tail="FEtoDB1"/>
+      <arc head="t1" kind="INPUT" tail="DB_idle"/>
+      <arc head="DBBusy1" kind="OUTPUT" tail="t1"/>
+      <arc head="T5" kind="INPUT" tail="DBBusy1"/>
+      <arc head="FEs" kind="OUTPUT" tail="t1">
+        <point x="35.0" y="36.0"/>
+      </arc>
+      <arc head="FEF_idle" kind="INPUT" tail="FEs"/>
+      <arc head="FEFail_W" kind="INPUT" tail="FE_W"/>
+      <arc head="FEFail_wait" kind="INPUT" tail="FEtoDB1"/>
+      <arc head="t2" kind="INPUT" mult="2" mult-x="1.5" mult-y="0.0" tail="FEFailed"/>
+      <arc head="SysDownFE" kind="OUTPUT" mult-k="1.4499023437499998" tail="t2">
+        <point x="36.0" y="57.91669921875"/>
+      </arc>
+      <arc head="FEFailed" kind="OUTPUT" tail="FEFail_W"/>
+      <arc head="FEFailed" kind="OUTPUT" tail="FEFail_wait"/>
+      <arc head="DBFail_Idle" kind="INPUT" tail="DB_idle"/>
+      <arc head="DBFail_W" kind="INPUT" tail="DBBusy1"/>
+      <arc head="DB_SysDown" kind="OUTPUT" tail="DBFail_Idle"/>
+      <arc head="DB_SysDown" kind="OUTPUT" tail="DBFail_W"/>
+      <arc head="FEFailed" kind="OUTPUT" tail="FEF_idle"/>
+      <arc head="DBCKbusyR" kind="INPUT" tail="DBBusy1"/>
+      <arc head="FEs" kind="OUTPUT" tail="FE_Rep">
+        <point x="18.5" y="48.0"/>
+      </arc>
+      <arc head="DB_idle" kind="OUTPUT" tail="DBRep_idle"/>
+      <arc head="FE_Rep" kind="INPUT" tail="FEFailed">
+        <point x="31.5" y="59.5"/>
+      </arc>
+      <arc head="FEFailed" kind="OUTPUT" mult="2" mult-k="0.5989257812500001" mult-x="-1.499999999999993" mult-y="-0.7428023832600203" tail="t2">
+        <point x="36.0" y="57.0"/>
+        <point x="36.0" y="55.5"/>
+      </arc>
+      <arc head="DBBusy1" kind="OUTPUT" tail="DBCKbusyR"/>
+      <arc head="DBRep_idle" kind="INPUT" tail="DB_SysDown">
+        <point x="52.5" y="57.5"/>
+      </arc>
+      <arc head="DB_idle" kind="OUTPUT" tail="T5">
+        <point x="75.0" y="40.5"/>
+        <point x="75.0" y="29.5"/>
+        <point x="66.0" y="29.0"/>
+        <point x="50.5" y="27.5"/>
+      </arc>
+      <arc head="DBRep_busy" kind="INPUT" tail="DB_SysDown"/>
+      <arc head="DBRep_busy" kind="INPUT" tail="CK_Busy">
+        <point x="68.0" y="41.5"/>
+        <point x="72.0" y="48.5"/>
+      </arc>
+      <arc head="CK_Busy" kind="OUTPUT" tail="DBRep_busy">
+        <point x="57.5" y="49.0"/>
+      </arc>
+      <arc head="BusyCPUseless" kind="INHIBITOR" tail="DBBusy1"/>
+      <arc head="BusyCPUseless" kind="INPUT" tail="CK_Busy"/>
+      <arc head="DBBusy1" kind="OUTPUT" tail="DBFail_W"/>
+      <arc head="T5" kind="INHIBITOR" tail="DB_SysDown"/>
+      <arc head="DBCKbusyR" kind="INHIBITOR" tail="DB_SysDown">
+        <point x="54.5" y="49.5"/>
+        <point x="50.0" y="42.5"/>
+      </arc>
+      <arc head="Arrivals" kind="OUTPUT" tail="QueueFree"/>
+      <arc head="Arrivals" kind="OUTPUT" tail="LostBuffer"/>
+      <arc head="lostUnv_1" kind="INPUT" tail="SysDownFE"/>
+      <arc head="lostUnv_1" kind="INPUT" tail="Queue">
+        <point x="12.0" y="52.5"/>
+      </arc>
+      <arc head="SysDownFE" kind="OUTPUT" tail="lostUnv_1"/>
+      <arc head="t" kind="INPUT" tail="SysDownFE"/>
+      <arc head="t" kind="INPUT" mult-k="0.50009765625" tail="FEs">
+        <point x="19.5" y="42.0"/>
+        <point x="19.0" y="43.5"/>
+        <point x="17.0" y="50.5"/>
+        <point x="14.5" y="53.5"/>
+        <point x="15.0" y="56.0"/>
+        <point x="16.0" y="57.5"/>
+        <point x="23.0" y="61.0"/>
+      </arc>
+      <arc head="FEs" kind="OUTPUT" tail="t">
+        <point x="23.0" y="61.0"/>
+        <point x="16.0" y="57.5"/>
+        <point x="15.0" y="56.0"/>
+        <point x="14.5" y="53.5"/>
+        <point x="17.0" y="50.5"/>
+        <point x="20.0" y="40.0"/>
+      </arc>
+      <arc head="t2" kind="INHIBITOR" tail="SysDownFE"/>
+      <arc head="DBRep_idle" kind="INHIBITOR" tail="CK_Busy">
+        <point x="57.5" y="39.5"/>
+        <point x="56.0" y="49.5"/>
+        <point x="53.5" y="52.5"/>
+        <point x="52.0" y="55.0"/>
+      </arc>
+      <arc head="LostBuffer" kind="INHIBITOR" tail="SysDownFE">
+        <point x="40.5" y="63.0"/>
+        <point x="40.0" y="70.0"/>
+        <point x="7.0" y="64.5"/>
+      </arc>
+      <arc head="QueueFree" kind="INHIBITOR" tail="SysDownFE">
+        <point x="40.5" y="63.0"/>
+        <point x="40.0" y="70.0"/>
+        <point x="12.0" y="63.0"/>
+        <point x="8.5" y="52.0"/>
+        <point x="10.0" y="48.0"/>
+      </arc>
+      <arc head="LostDB_Unv1" kind="INPUT" tail="FEtoDB1">
+        <point x="46.5" y="48.5"/>
+        <point x="46.0" y="50.5"/>
+        <point x="40.0" y="51.5"/>
+        <point x="40.0" y="58.5"/>
+      </arc>
+      <arc head="LostDB_Unv1" kind="INPUT" tail="DB_SysDown">
+        <point x="53.5" y="58.5"/>
+        <point x="47.0" y="60.0"/>
+      </arc>
+      <arc head="DB_SysDown" kind="OUTPUT" tail="LostDB_Unv1">
+        <point x="47.0" y="60.0"/>
+        <point x="53.5" y="58.5"/>
+      </arc>
+      <arc head="lostUnv_0" kind="INPUT" tail="Arrivals">
+        <point x="3.0" y="45.5"/>
+        <point x="3.0" y="65.5"/>
+      </arc>
+      <arc head="lostUnv_0" kind="INPUT" tail="SysDownFE">
+        <point x="40.5" y="63.0"/>
+        <point x="40.0" y="70.0"/>
+      </arc>
+      <arc head="SysDownFE" kind="OUTPUT" tail="lostUnv_0">
+        <point x="40.0" y="70.0"/>
+        <point x="40.5" y="63.0"/>
+      </arc>
+      <arc head="DBFail_W" kind="INHIBITOR" tail="DB_SysDown"/>
+      <arc head="lostDB_Unv2" kind="INPUT" tail="DB_SysDown"/>
+      <arc head="lostDB_Unv2" kind="INPUT" tail="DBBusy1">
+        <point x="53.5" y="57.0"/>
+      </arc>
+      <arc head="lostDB_Unv2" kind="INHIBITOR" tail="CK_Busy">
+        <point x="60.5" y="57.0"/>
+        <point x="63.0" y="60.5"/>
+      </arc>
+      <arc head="FEs" kind="OUTPUT" tail="LostDB_Unv1">
+        <point x="47.0" y="70.0"/>
+        <point x="80.0" y="70.0"/>
+        <point x="80.0" y="36.5"/>
+        <point x="80.0" y="24.5"/>
+        <point x="21.0" y="25.0"/>
+      </arc>
+      <arc head="DB_SysDown" kind="OUTPUT" tail="lostDB_Unv2"/>
+      <arc head="Arrivals" kind="OUTPUT" tail="lostUnv_0">
+        <point x="3.0" y="65.5"/>
+        <point x="3.0" y="45.0"/>
+      </arc>
+      <arc head="CKBusy_W" kind="OUTPUT" tail="DBCKbusyR"/>
+      <arc head="CKIdleR" kind="INHIBITOR" tail="CKBusy_W"/>
+      <arc head="T3" kind="INPUT" tail="CKBusy_W"/>
+      <arc head="CK_Busy" kind="OUTPUT" tail="T3"/>
+      <arc head="CKIdle_W" kind="OUTPUT" tail="CKIdleR"/>
+      <arc head="DBCKbusyR" kind="INHIBITOR" tail="CKIdle_W"/>
+      <arc head="T4" kind="INPUT" tail="CKIdle_W"/>
+      <arc head="CKIdleR" kind="INPUT" tail="DB_idle"/>
+      <arc head="DB_idle" kind="OUTPUT" tail="CKIdleR"/>
+      <arc head="CKIdleR" kind="INHIBITOR" tail="CKIdle_W"/>
+      <arc head="DBCKbusyR" kind="INHIBITOR" tail="CKBusy_W"/>
+      <arc head="DBCKbusyR" kind="INHIBITOR" tail="CK_Busy"/>
+    </edges>
+  </gspn>
+  <resource-list>
+    <document-log uuid="175d61c8-0949-43be-9c88-dde52139701e">rO0ABXNyABRqYXZhLnV0aWwuTGlua2VkTGlzdAwpU11KYIgiAwAAeHB3BAAAAEZ0APAbWzBtRVhFQzogIkM6XFByb2dyYW0gRmlsZXNcR3JlYXRTUE5cYXBwXHBvcnRhYmxlX2dyZWF0c3BuXGJpblxEU1BOLVRvb2wuZXhlIiAtbG9hZCAiQzpcVXNlcnNcZ2FicmlcRG9jdW1lbnRzXE1BVExBQlxQcm9nZXR0b19TY2FycGFcT25saW5lUGF5bWVudFByb2plY3QtTWVhc3VyZXMuc29sdXRpb25cR1NQTiAxIiAtZXBzaWxvbiAiMS4wRS02IiAtb24tdGhlLWZseSAtaSAtaS1wb3dlciAtcyAtYWxsLW1lYXN1cmVzIAp0AI8bWzFtG1s0bUxPQURJTkcgUEVUUkkgTkVUIEM6XFVzZXJzXGdhYnJpXERvY3VtZW50c1xNQVRMQUJcUHJvZ2V0dG9fU2NhcnBhXE9ubGluZVBheW1lbnRQcm9qZWN0LU1lYXN1cmVzLnNvbHV0aW9uXEdTUE4gMSAobmV0L2RlZikuLi4bWzIybRtbMjRtCnQAD01BUktJTkcgUEFSOiAxCnQAEFBMQUNFUzogICAgICAxMwp0AA9SQVRFIFBBUjogICAgOQp0ABBUUkFOU0lUSU9OUzogMjUKdAAPTUVBU1VSRVM6ICAgIDAKdAAoTE9BRElORyBUSU1FOiBbVXNlciAwLjAwMHMsIFN5cyAwLjAwMHNdCnQAAQp0AAEKdAA5TUFYLiBSRVNJRFVBTCBFUlJPUiBTRVQgVE8gMWUtMDYgRk9SIE5VTUVSSUNBTCBBTkFMWVNJUy4KdABEVVNJTkcgT04tVEhFLUZMWSBTVEFURSBTUEFDRSBDT05TVFJVQ1RJT04gT0YgQ1NMXlRBIE1PREVMIENIRUNLSU5HLgp0ADFVU0lORyBJTVBMSUNJVCBTVEVBRFkgU1RBVEUgTVJQIFNPTFVUSU9OIE1FVEhPRC4KdAA8VVNJTkcgUE9XRVIgTUVUSE9EIE1FVEhPRCBGT1IgSU1QTElDSVQgU1RBVElPTkFSWSBBTkFMWVNJUy4KdABLVEFOR0lCTEU6IDQ5OSAgICAgVkFOSVNISU5HOiAxMzE5ICAgIElNTUVESUFURTogMTYzOSAgICBUSU1FRDogMjYwMCAgICAgICAKdABTG1sxQSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAp0AAUbWzFBCnQAAQp0ACdUQU5HSUJMRSBTVEFURVM6ICAgICAgICAgICAgICAgICAgIDc2Mgp0ACdWQU5JU0hJTkcgU1RBVEVTOiAgICAgICAgICAgICAgICAgICAgMAp0AExOVU1CRVIgT0YgVElNRUQgRURHRVM6ICAgICAgICAgICAgNDMzMiAgKDI1MDUgVC0+VCwgMCBULT5WLCAxODI3IFQtPlYqLT5UKS4KdAA6TlVNQkVSIE9GIElNTUVESUFURSBFREdFUzogICAgICAgICAgIDAgICgwIFYtPlQsIDAgVi0+VikuCnQAJ1RPVEFMIE5VTUJFUiBPRiBFREdFUzogICAgICAgICAgICA0MzMyCnQAJ0lNTUVESUFURSBUUk5TLiBGSVJJTkdTOiAgICAgICAgICAyOTAyCnQAJ1RJTUVEIFRSTlMuIEZJUklOR1M6ICAgICAgICAgICAgICA0MjY4CnQAJ1ZJU0lURUQgVkFOSVNISU5HIFNUQVRFUzogICAgICAgICAyMjY2CnQAJ0dFTkVSQUwgVFJBTlNJVElPTlM6ICAgICAgICAgICAgICAgICAwCnQAJ05PTi1QUkVFTVBUSVZFIEVYUC4gVFJOUy46ICAgICAgICA0MzMyCnQAJ1BSRUVNUFRJVkUgRVhQLiBUUkFOU0lUSU9OUzogICAgICAgICAwCnQADk1FTU9SWSBVU0FHRToKdAAnVFJBTlNJVElPTi1TRVQgRU5UUklFUzogICAgICAgICAgICAgIDAKdAAnVkFOSVNILVBBVEggRU5UUklFUzogICAgICAgICAgICAgICAxMDgKdAAnVkFOSVNILVBBVEgtU0VUIEVOVFJJRVM6ICAgICAgICAgICAgNjQKdAAtUEFDS0VEIE1BUktJTkdTOiAgICAgICAgICAgICAgICAgIDIyNTggQllURVMKdAAtU1RBVEUgU0VUIERBVEE6ICAgICAgICAgICAgICAgICAgIDE0MjkgQllURVMKdAAtRURHRVMgREFUQTogICAgICAgICAgICAgICAgICAgICAgMjA0MzAg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</document-log>
+  </resource-list>
+</project>
